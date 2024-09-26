@@ -7,6 +7,15 @@ local lspconfig = require "lspconfig"
 local servers = { "html", "cssls", "gopls"}
 local nvlsp = require "nvchad.configs.lspconfig"
 
+-- Enable gofumpt
+require('lspconfig').gopls.setup({
+    settings = {
+        gopls = {
+            gofumpt = true
+        }
+    }
+})
+
 -- lsps with default config
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
